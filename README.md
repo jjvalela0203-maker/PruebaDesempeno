@@ -8,11 +8,11 @@ The register is  modularized to ensure a clean code structure
 
 ## 🚀 Features
 
--Add new students
--Show the list of the actual students
--search for a student by a specific characteristic (ID, Name, Age, Program, State)
--Update the data of one student
--Delete a student from the list
+* Add new students
+* Show the list of the actual students
+* search for a student by a specific characteristic (ID, Name, Age, Program, State)
+* Update the data of one student
+* Delete a student from the list
 
 ## ▶️ How to Run
 
