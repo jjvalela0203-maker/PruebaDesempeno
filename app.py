@@ -119,12 +119,25 @@ while menu:
         else:
             name=input("Enter student name:")
 
-
             age=(input("Enter new age (Enter to skip):"))
+            if age == "":  # If the age is empty
+                age=str(age) #The age is considered a text
+                pass
+            else:
+                try:
+                    while int(age) <= 0: #If the age is filled, consider it  as a number
+                        print("Invalid age")
+                        age=int(input("Enter new age (Enter to skip):"))
+                except ValueError:
+                        print("Invalid age")
+                        age=(input("Enter new age (Enter to skip):"))
 
             program=input("Enter new program (Enter to skip):")
             
-            state=input("Enter new state(A for active and I for inactive) (Enter to skip):").lower()
+            state=input("Enter new state(A for active and I for inactive) (Enter to skip):").lower() #State validations
+            while state != "a" and state != "i":
+                print("Invalid state")
+                state=input("Enter new state(A for active and I for inactive) (Enter to skip):").lower()
             
             
             new_age= age if age else None
