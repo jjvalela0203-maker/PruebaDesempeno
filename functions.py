@@ -103,6 +103,8 @@ def Search_student(list, id, name, age, program, state):
                     clear_screen()
         
         elif selection == 2:
+            clear_screen()
+            print("\n", "="*30, "SEARCH STUDENT", "="*30)
             name=input("Enter student name:")
             for student in list:
                 if student["name"].lower() == name.lower():
@@ -119,12 +121,14 @@ def Search_student(list, id, name, age, program, state):
                     clear_screen()
         
         elif selection == 3:
+            clear_screen()
+            print("\n", "="*30, "SEARCH STUDENT", "="*30)
             age=int(input("Enter student age:"))
             for student in list:
                 if student["age"] == age:
                     clear_screen()
                     print("\n", "="*30, "SEARCH STUDENT", "="*30)
-                    print("\nStudent Found:", {student})
+                    print("\nStudent Found:", student)
                     input("Press enter to continue")
                     clear_screen()
                 else:
@@ -135,12 +139,14 @@ def Search_student(list, id, name, age, program, state):
                     clear_screen()
         
         elif selection == 4:
+            clear_screen()
+            print("\n", "="*30, "SEARCH STUDENT", "="*30)
             program=input("Enter student program:")
             for student in list:
                 if student["program"].lower() == program.lower():
                     clear_screen()
                     print("\n", "="*30, "SEARCH STUDENT", "="*30)
-                    print("\nStudent Found:", {student})
+                    print("\nStudent Found:", student)
                     input("Press enter to continue")
                     clear_screen()
                 else:
@@ -152,12 +158,14 @@ def Search_student(list, id, name, age, program, state):
         
 
         elif selection == 5:
+            clear_screen()
+            print("\n", "="*30, "SEARCH STUDENT", "="*30)
             state=input("Enter student state(A for active and I for inactive):").lower()
             for student in list:
                 if student["state"].lower() == state.lower():
                     clear_screen()
                     print("\n", "="*30, "SEARCH STUDENT", "="*30)
-                    print("\nStudent Found:", {student})
+                    print("\nStudent Found:", student)
                     input("Press enter to continue")
                     clear_screen()
                 else:

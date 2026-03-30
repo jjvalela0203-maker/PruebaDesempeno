@@ -116,22 +116,22 @@ while menu:
             print("The list is empty")
             input("Press enter to continue")
             functions.clear_screen()
-        
-        name=input("Enter student name:")
+        else:
+            name=input("Enter student name:")
 
 
-        age=(input("Enter new age (Enter to skip):"))
+            age=(input("Enter new age (Enter to skip):"))
 
-        program=input("Enter new program (Enter to skip):")
-        
-        state=input("Enter new state(A for active and I for inactive) (Enter to skip):").lower()
-        
-        
-        new_age= age if age else None
-        new_program= program if program else None
-        new_state= state if state else None
+            program=input("Enter new program (Enter to skip):")
+            
+            state=input("Enter new state(A for active and I for inactive) (Enter to skip):").lower()
+            
+            
+            new_age= age if age else None
+            new_program= program if program else None
+            new_state= state if state else None
 
-        functions.update_student(list, name, new_age, new_program, new_state)
+            functions.update_student(list, name, new_age, new_program, new_state)
 
     elif option == 5: #Delete a student if its found
         functions.clear_screen()
