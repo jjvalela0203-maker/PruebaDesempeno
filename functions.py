@@ -41,7 +41,7 @@ def show_list(list):
     if not list: #If the list its empty, dont show nothing
         print("The list is empty")
 
-    else:  #On the other hand if the list conta
+    else:  #On the other hand if the list contein a student
         for student in list:
             print("\nStudent ID:", student["id"],
                   "| Name:", student["name"],
@@ -68,7 +68,7 @@ def Search_student(list, id, name, age, program, state):
     """
     This function search students in the list
     For one characteristic, and print the student found info
-    if no student is find, print a message of not found
+    if no student is found, print a message of not found
     """
     submenu= True
 
