@@ -1,4 +1,6 @@
 """
+Main module of students register
+In this module the user can add, show, search, update and delete students
 """
 import os
 import functions
@@ -23,9 +25,7 @@ def main_menu():
     print("3) Search student")
     print("4) Update student info")
     print("5) Delete student")
-    print("6) Save list")
-    print("7) Load list")
-    print("8) Exit")
+    print("6) Exit")
 
 menu= True
 
@@ -36,7 +36,7 @@ while menu:
     
     while valid:
         try:
-            option=int(input("Select an option:"))
+            option=int(input("Select an option:")) #Option validations
             if 1<= option <= 6:
                 valid= False
             else:
@@ -46,10 +46,13 @@ while menu:
                 input("Press enter to continue")
                 functions.clear_screen()
         except ValueError:
+            functions.clear_screen()
             print("\n", "="*30, "MENU", "="*30)
             print("Invalid option. please enter a number")
             input("Press enter to continue")
             functions.clear_screen()
+
+        main_menu()
 
     if option == 1:
         functions.clear_screen()
@@ -70,7 +73,7 @@ while menu:
         name=input("Enter student name:")
         
         try:
-            age=int(input("Enter student age:"))
+            age=int(input("Enter student age:")) #Age validations
             while age <= 0:
                 print("Invalid age")
                 age=int(input("Enter student age:"))
@@ -90,55 +93,58 @@ while menu:
         functions.clear_screen()
 
 
-    elif option == 2:
+    elif option == 2: #Show the list of students
         functions.clear_screen()
         print("\n", "="*30, "LIST OF STUDENTS", "="*30)
-        functions.show_list(list)
+        functions.show_list(list) 
 
 
-    elif option == 3:
+    elif option == 3: #Search a student 
         functions.clear_screen()
-        functions.Search_student(list, id, name, age, program, state)
-
-    elif option == 4:
-        functions.clear_screen()
-        print("\n", "="*30, "UPDATE STUDENT", "="*30)
-        
-        student=input("Enter student name:")
-
-        try:
-            new_name=input("Enter new student name (Enter to skip):")
-            
-            new_age=int(input("Enter new student age (Enter to skip):"))
-            while new_age <= 0:
-                print("Invalid age")
-                new_age
-
-            new_program=input("Enter new student program (Enter to skip):")
-
-            new_state=input("Enter new student state(A for active and I for inactive) (Enter to skip):").lower()
-            while new_state != "a" and new_state != "i":
-                print("Invalid state")
-                new_state=input("Enter new student state(A for active and I for inactive) (Enter to skip):").lower()
-        
-        except ValueError:
-            print("Invalid data")
+        if not list:
+            print("\n", "="*30, "SEARCH STUDENT", "="*30)
+            print("The list is empty")
             input("Press enter to continue")
             functions.clear_screen()
-            
-    elif option == 5:
+        else:
+            functions.Search_student(list, id, name, age, program, state)
+
+    elif option == 4: #Updata the data of a student
+        functions.clear_screen()
+        print("\n", "="*30, "UPDATE STUDENT", "="*30)
+        if not list:
+            print("The list is empty")
+            input("Press enter to continue")
+            functions.clear_screen()
+        
+        name=input("Enter student name:")
+
+
+        age=(input("Enter new age (Enter to skip):"))
+
+        program=input("Enter new program (Enter to skip):")
+        
+        state=input("Enter new state(A for active and I for inactive) (Enter to skip):").lower()
+        
+        
+        new_age= age if age else None
+        new_program= program if program else None
+        new_state= state if state else None
+
+        functions.update_student(list, name, new_age, new_program, new_state)
+
+    elif option == 5: #Delete a student if its found
         functions.clear_screen()
         print("\n", "="*30, "DELETE STUDENT", "="*30)
+        if not list:
+            print("The list is empty")
+            input("Press enter to continue")
+            functions.clear_screen()
+        else:    
+            name=input("Enter student name:")
+            functions.delete_student(list, name)
 
-    elif option == 6:
-        functions.clear_screen()
-        print("\n", "="*30, "SAVE LIST", "="*30)
-    
-    elif option == 7:
-        functions.clear_screen()
-        print("\n", "="*30, "LOAD LIST", "="*30)
-
-    elif option == 8:
+    elif option == 6: #Exit the program
         functions.clear_screen()
         print("\n", "="*30, "EXIT", "="*30)
         print("Goodbye!")
